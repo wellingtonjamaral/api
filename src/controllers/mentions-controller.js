@@ -54,3 +54,15 @@ exports.updateMention = async (req, res) => {
   }
 };
 
+// delete
+exports.deleteMention = async (req, res) => {
+  try {
+    await repository.deleteMention(req.params.id);
+    res.status(200).send({
+      message: 'Menção removida com sucesso!'
+    });
+  } catch (e) {
+    res.status(500).send({message: 'Falha ao remover a menção.'});
+  }
+};
+
